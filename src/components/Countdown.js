@@ -1,14 +1,22 @@
 import {useState, useEffect} from 'react'
 
-const Countdown = () => {    
-    const [countdown, setCountdown] = useState(10)
-    
+const QUIZ_TIME = 60
+
+const Countdown = ({formRef, questionIndex}) => {    
+    const [countdown, setCountdown] = useState(QUIZ_TIME)
+
+    useEffect(()=>{
+        setCountdown(QUIZ_TIME)
+    }, [questionIndex]);
+
     useEffect(() => {
-        if(countdown > 0){
-            setTimeout(()=>(
-                setCountdown(countdown - 1)
-            ), 1000)
+        let timer1 = setTimeout(() => setCountdown(countdown - 1), 1000);    
+        if(countdown === 0){
+            formRef.current.dispatchEvent(new Event("submit", {bubbles: true, cancelable: true}))
         }
+        return () => {
+            clearTimeout(timer1);
+        };
     }, [countdown])
 
     return (

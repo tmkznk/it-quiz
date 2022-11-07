@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 import Markdown from "markdown-to-jsx"
 import Countdown from "./Countdown";
 
-const Question = ({question, handleAnswer}) => {    
+const Question = ({question, questionIndex, handleAnswer}) => {    
     const MyInput = ({ children, ...props }) => {
         return (
             <input
@@ -18,10 +18,12 @@ const Question = ({question, handleAnswer}) => {
         handleAnswer(+event.currentTarget['question'].value);
     }
 
+    const formRef = useRef();
+
     return (
         <>
-            <Countdown />
-            <form onSubmit={handleSubmit}>
+            <form ref={formRef} onSubmit={handleSubmit}>    
+                <Countdown formRef={formRef} handleAnswe={handleAnswer} questionIndex={questionIndex} />
                 <Markdown
                     options={{
                         overrides: {
