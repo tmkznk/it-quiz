@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react"
+import Intro from './Intro'
 import Question from "./Question"
+import Summary from "./Summary"
+import Layout from "./Layout"
 
 const importAll = (r) => r.keys().map(r);
-const markdownFiles = importAll(require.context('../quizzes/reactjs', false, /\.md$/))
-    .sort()
-    .reverse();
+const markdownFiles = importAll(require.context('../quizzes/', true, /\.md$/))
+    .sort();
 
-const QUIZ_LENGHT = 3
+const QUIZ_LENGTH = 3
 
 const Quiz = () => {
     const [questionIndex, setQuestionIndex] = useState(0);
@@ -24,13 +26,27 @@ const Quiz = () => {
             allQuestions.shift()
             
             const shuffledQuestions = allQuestions.sort(() => 0.5 - Math.random())
-            setSelectedQuestions(shuffledQuestions.slice(0, QUIZ_LENGHT))
+            setSelectedQuestions(shuffledQuestions.slice(0, QUIZ_LENGTH))
         }
     }
 
-    useEffect(() => {
-        fetchQuizzes();
-    }, [])
+    // useEffect(() => {
+    //     fetchQuizzes();
+    // }, [])
+
+    const loadQuiz = async (file) => {
+        const quiz = await fetch(file)
+            .then((res) => res.text())
+            .catch(err => console.log(err));
+
+        // split questions to question array
+        let allQuestions = quiz.split(/(?=####)/g)
+        // remove first element
+        allQuestions.shift()
+            
+        const shuffledQuestions = allQuestions.sort(() => 0.5 - Math.random())
+        setSelectedQuestions(shuffledQuestions.slice(0, QUIZ_LENGTH))
+    }
 
     const handleAnswer = answer => {
         let answersArray = [...answers]
@@ -41,10 +57,15 @@ const Quiz = () => {
     }
 
     if (selectedQuestions.length === 0){
-        return null
+        return (
+            <Intro
+                markdownFiles={markdownFiles}
+                loadQuiz={loadQuiz}
+            />
+        )
     }
 
-    if (questionIndex > QUIZ_LENGHT-1){
+    if (questionIndex > QUIZ_LENGTH-1){
 
         let score = 0
 
@@ -53,19 +74,19 @@ const Quiz = () => {
         })
 
         return (
-            <h1>Your score: {score}/{QUIZ_LENGHT}</h1>
+            <Summary score={score} quizLength={QUIZ_LENGTH} />
         )
     }
 
     return (
-        <section className="section">
-            <h1>Question {questionIndex+1} of {QUIZ_LENGHT}</h1>
+        <Layout>
+            <h1>Question {questionIndex+1} of {QUIZ_LENGTH}</h1>
             <Question
                 question={selectedQuestions[questionIndex]}
                 questionIndex={questionIndex}
                 handleAnswer={(answer)=>handleAnswer(answer)}
             />
-        </section>
+        </Layout>
     )
 }
 

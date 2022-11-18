@@ -35,7 +35,7 @@ const Question = ({question, questionIndex, handleAnswer}) => {
                 >
                     {question}
                 </Markdown>
-                <button type="submit">Next</button>
+                <button className="btn btn-lg btn-primary w-100 mt-4" type="submit">Next</button>
             </form>
         </>
     )

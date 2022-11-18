@@ -20,7 +20,7 @@ const Countdown = ({formRef, questionIndex}) => {
     }, [countdown])
 
     return (
-        <p>Time left: {countdown}</p>    
+        <p className="my-4">Time left: {countdown} s.</p>    
     )
 }
 
