@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/it-quiz/static/css/main.d84d255f.css",
-    "main.js": "/it-quiz/static/js/main.a780b993.js",
+    "main.js": "/it-quiz/static/js/main.5ac5aab2.js",
     "static/js/787.d24cf380.chunk.js": "/it-quiz/static/js/787.d24cf380.chunk.js",
     "static/media/python-quiz-es.md": "/it-quiz/static/media/python-quiz-es.b642c2892ec0f9571675.md",
     "static/media/python-quiz.md": "/it-quiz/static/media/python-quiz.ff88bbed9012946853a0.md",
@@ -147,11 +147,11 @@
     "static/media/sketchup-quiz.md": "/it-quiz/static/media/sketchup-quiz.e01a28b4e29d6381b545.md",
     "static/media/microsoft-excel-quiz-de.md": "/it-quiz/static/media/microsoft-excel-quiz-de.5e86517a2285c492e6a0.md",
     "main.d84d255f.css.map": "/it-quiz/static/css/main.d84d255f.css.map",
-    "main.a780b993.js.map": "/it-quiz/static/js/main.a780b993.js.map",
+    "main.5ac5aab2.js.map": "/it-quiz/static/js/main.5ac5aab2.js.map",
     "787.d24cf380.chunk.js.map": "/it-quiz/static/js/787.d24cf380.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d84d255f.css",
-    "static/js/main.a780b993.js"
+    "static/js/main.5ac5aab2.js"
   ]
 }
