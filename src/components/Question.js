@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import Markdown from "markdown-to-jsx"
 import Countdown from "./Countdown";
 
-const Question = ({question, questionIndex, handleAnswer}) => {    
+const Question = ({question, questionIndex, handleAnswer, quizTime}) => {    
     const MyInput = ({ children, ...props }) => {
         return (
             <input
@@ -23,7 +23,12 @@ const Question = ({question, questionIndex, handleAnswer}) => {
     return (
         <>
             <form ref={formRef} onSubmit={handleSubmit}>    
-                <Countdown formRef={formRef} handleAnswe={handleAnswer} questionIndex={questionIndex} />
+                <Countdown
+                    formRef={formRef}
+                    handleAnswe={handleAnswer}
+                    questionIndex={questionIndex}
+                    quizTime={quizTime}
+                />
                 <Markdown
                     options={{
                         overrides: {

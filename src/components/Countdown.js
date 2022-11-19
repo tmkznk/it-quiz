@@ -1,12 +1,10 @@
 import {useState, useEffect} from 'react'
 
-const QUIZ_TIME = 60
-
-const Countdown = ({formRef, questionIndex}) => {    
-    const [countdown, setCountdown] = useState(QUIZ_TIME)
+const Countdown = ({formRef, questionIndex, quizTime}) => {    
+    const [countdown, setCountdown] = useState(quizTime)
 
     useEffect(()=>{
-        setCountdown(QUIZ_TIME)
+        setCountdown(quizTime)
     }, [questionIndex]);
 
     useEffect(() => {
