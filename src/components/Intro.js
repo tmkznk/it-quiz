@@ -26,7 +26,7 @@ const Intro = ({markdownFiles, loadQuiz}) => {
         <Layout>
             <h1>IT Quiz</h1>
             <p>Welcome in IT Quiz. This quiz is based on Linkedin skill assessments quizes. <br/>
-            Every Quiz has 15 questions. For each question you have 60 s.</p>
+            You can choose quiz topic, set number of questions and time to answer.</p>
             <p><strong>Good luck!</strong></p>
             
             <div className="mt-4 mb-3">
