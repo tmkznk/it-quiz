@@ -34,7 +34,7 @@ const Intro = ({markdownFiles, loadQuiz}) => {
                 <select name="quiz" value={quizSettings.quiz} id="quiz-select" className="form-select" aria-label="Select quiz" onChange={handleChange}>
                     <option value="">Please choose an option</option>
                     {onlyEnglishTests.map(file=>(
-                        <option value={file} key={file}>{file.replace('/static/media/', '').split('-quiz')[0]}</option>
+                        <option value={file} key={file}>{file.replace('/it-quiz/static/media/', '').split('-quiz')[0]}</option>
                     ))}
                 </select>
             </div>
