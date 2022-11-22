@@ -36,3 +36,22 @@ ul > li {
 h1, h4{
     margin-bottom: 1rem;
 }
+
+li.your-answer {
+    font-weight: bold;
+    color: #dc3545;
+}
+
+li.your-answer > code {
+    color: #dc3545;
+}
+
+li.your-answer.correct {
+    font-weight: bold;
+    color: #198754;
+}
+
+li.your-answer.correct > code{
+    font-weight: bold;
+    color: #198754;
+}

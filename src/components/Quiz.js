@@ -38,7 +38,7 @@ const Quiz = () => {
 
     const handleAnswer = answer => {
         let answersArray = [...answers]
-        answersArray[questionIndex] = answer
+        answersArray[questionIndex] =  JSON.parse(answer)
 
         setAnswers(answersArray)
         setQuestionIndex(questionIndex +1)
@@ -58,11 +58,16 @@ const Quiz = () => {
         let score = 0
 
         answers.forEach(element => {
-            score += element
+            score += element.answerValue
         })
 
         return (
-            <Summary score={score} quizLength={quizLength} />
+            <Summary
+                score={score}
+                quizLength={quizLength}
+                selectedQuestions={selectedQuestions}
+                answers={answers}
+            />
         )
     }
 
