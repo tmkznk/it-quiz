@@ -52,7 +52,11 @@ const Question = ({question, questionIndex, handleAnswer, quizTime, answers}) =>
 
     const handleSubmit = event => {
         event.preventDefault();
-        handleAnswer(event.currentTarget['question'].value);
+        if(event.currentTarget['question'].value){
+            handleAnswer(event.currentTarget['question'].value);
+        } else {
+            handleAnswer('{"answerValue": 0, "selectedAnswerIdx": 0}');
+        }
     }
 
     const formRef = useRef();

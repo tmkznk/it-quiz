@@ -15,13 +15,17 @@ body{
 
 section{
     width: 100%;
-    padding: 2rem;
+    padding: 1rem 0;
     flex: 1;
 }
 
 footer{
     padding: 1rem;
     background: #fff;
+}
+
+code{
+    color: #212529;
 }
 
 ul {
@@ -43,7 +47,17 @@ li.your-answer {
 }
 
 li.your-answer > code {
+    font-weight: bold;
     color: #dc3545;
+}
+
+li.correct {
+    color: #198754;
+}
+
+li.correct > code{
+    font-weight: bold;
+    color: #198754;
 }
 
 li.your-answer.correct {
